@@ -1,0 +1,43 @@
+server:
+  port: 8101
+  
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      #指明远程仓库的分支
+      label: master
+      #指定不同环境配置文件
+      profile: dev
+      #uri: http://localhost:8002/
+      discovery:
+        #开启配置服务发现
+        enabled: true
+        #配置服务实例名称
+        service-id: config-server
+  rabbitmq:  
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+
+#手动刷新config
+#spring-boot-starter-actuator 2.0.3 需要配置将如下三个接口暴露出来，才可以直接调接口,而且是POST方法 访问/actuator/refresh刷新
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: refresh,health,info
+
+#自动刷新 config        
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

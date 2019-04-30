@@ -1,0 +1,38 @@
+server:
+  port: 8100
+  
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          #配置git仓库地址
+          uri: https://github.com/xuegang1570/springcloud-config-repositoy.git
+          #仓库文件夹目录
+          searchPaths: /repositoy
+          username: xuegang1570
+          password: qq1570..
+          #配置仓库的分支
+          default-label: master
+          #配置文件拉去到本地的目录位置
+          basedir: C:\\Users\\Administrator\\Desktop\\rs
+  rabbitmq:  
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+
+#自动刷新 config配置
+#允许/actuator/bus-refresh接口被外部调用
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"      
