@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import com.xhz.spi.UserRibbonSpi;
 
 @SpringBootApplication
 @EnableEurekaClient
+@EnableHystrix
 @RestController
 public class Application {
 
@@ -33,12 +35,12 @@ public class Application {
 	
 	@GetMapping("/hi/{name}")
 	public String hi(@PathVariable String name) {
-		return "[new is ribbon]： " + userRibbonSpi.hi(name);
+		return "[new is ribbon-hystrix]： " + userRibbonSpi.hi(name);
 	}
 	
 	@GetMapping("/user/{userId}")
 	public String getUser(@PathVariable String userId) {
-		return "[new is ribbon]： " + userRibbonSpi.getUser(userId);
+		return "[new is ribbon-hystrix]： " + userRibbonSpi.getUser(userId);
 	}
 	
 }

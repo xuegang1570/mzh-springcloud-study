@@ -5,8 +5,8 @@
     <artifactId>mzh-springcloud-study-master</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>ribbon-spi</artifactId>
-  
+  <artifactId>ribbon-hystrix-spi</artifactId>
+
   <dependencies>
  	<!-- eureka-client -->
 	<dependency>
@@ -21,11 +21,17 @@
 	</dependency>
 	
 	<!-- ribbon -->
+	<!-- netflix-ribbon 该包可以不用引用, 其实 eureka-client 已经自动引入了该包 -->
 	<dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
     </dependency>
 
+	<!-- Hystrix起步依赖，在Ribbon使用断路器 -->
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+    </dependency>
 
   </dependencies>
   

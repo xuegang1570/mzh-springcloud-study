@@ -1,6 +1,3 @@
-server:
-  port: 8101
-  
 spring:
   application:
     name: config-client
@@ -16,6 +13,11 @@ spring:
         enabled: true
         #配置服务实例名称
         service-id: config-server
+    bus:
+      enabled: true
+      destination: mzh-config-bus
+      refresh:
+        enabled: true
   rabbitmq:  
     host: localhost
     port: 5672
@@ -26,6 +28,11 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8888/eureka/
+  instance:
+    #租期到期时间
+    lease-expiration-duration-in-seconds: 600
+    #租期更新时间间隔，即每15秒发送一次心跳
+    lease-renewal-interval-in-seconds: 10
 
 #手动刷新config
 #spring-boot-starter-actuator 2.0.3 需要配置将如下三个接口暴露出来，才可以直接调接口,而且是POST方法 访问/actuator/refresh刷新

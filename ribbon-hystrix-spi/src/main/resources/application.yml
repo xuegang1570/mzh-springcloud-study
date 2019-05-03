@@ -1,0 +1,11 @@
+server:
+  port: 8301
+  
+spring:
+  application:
+    name: ribbon-hystrix-spi
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/

@@ -1,0 +1,22 @@
+server:
+  port: 8400
+  
+spring:
+  application:
+    name: zuul-router
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+
+zuul:
+  prefix: /mzh
+  routes:
+    eureka-client: /ec/**    # 服务名称映射。给指定的服务做映射，当前配置是将/eureka-client/**映射为/ec/**
+    api-ec:
+      path: /api-ec/**
+      serviceId: eureka-client
+    api-rhs:
+      path: /api-rhs/**
+      serviceId: ribbon-hystrix-spi

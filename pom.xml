@@ -52,7 +52,12 @@
 		<module>config-client</module>
 
 		<module>ribbon-spi</module>
-		<module>eureka-server2</module>
+		
 		<module>eureka-client2</module>
+		
+		<module>feign-spi</module>
+		<module>ribbon-hystrix-spi</module>
+		<module>feign-hystrix-spi</module>
+		<module>zuul-router</module>
 	</modules>
 </project>

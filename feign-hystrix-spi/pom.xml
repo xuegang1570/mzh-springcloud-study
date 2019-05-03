@@ -5,7 +5,7 @@
     <artifactId>mzh-springcloud-study-master</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>ribbon-spi</artifactId>
+  <artifactId>feign-hystrix-spi</artifactId>
   
   <dependencies>
  	<!-- eureka-client -->
@@ -20,12 +20,11 @@
 		<artifactId>spring-boot-starter-web</artifactId>
 	</dependency>
 	
-	<!-- ribbon -->
-	<dependency>
+	<!--引入feign-->
+    <dependency>
         <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        <artifactId>spring-cloud-starter-openfeign</artifactId>
     </dependency>
-
 
   </dependencies>
   

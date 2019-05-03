@@ -18,6 +18,11 @@ spring:
           default-label: master
           #配置文件拉去到本地的目录位置
           basedir: C:\\Users\\Administrator\\Desktop\\rs
+    bus:
+      enabled: true
+      destination: mzh-config-bus
+      refresh:
+        enabled: true
   rabbitmq:  
     host: localhost
     port: 5672
@@ -30,9 +35,9 @@ eureka:
       defaultZone: http://localhost:8888/eureka/
 
 #自动刷新 config配置
-#允许/actuator/bus-refresh接口被外部调用
+#允许/actuator/bus-refresh接口被外部调用   (post)
 management:
   endpoints:
     web:
       exposure:
-        include: "*"      
+        include: "*"
